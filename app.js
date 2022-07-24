@@ -10,19 +10,19 @@ const cors = require("cors");
 
 const bodyParser = require("body-parser");
 
-//    app.use(bodyParser.json()); 
-//    let jsonParser = bodyParser.json();
+   app.use(bodyParser.json()); 
+   let jsonParser = bodyParser.json();
 
-//     app.use(bodyParser.urlencoded({
-//         extended: true
-//     }));
+    app.use(bodyParser.urlencoded({
+        extended: true
+    }));
     // let urlencodedParserFalse = bodyParser.urlencoded({extended: false});
     // let urlencodedParserTrue = bodyParser.urlencoded({extended: true});
 
-app.get("/",(req,res) => {
+app.post("/",(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
-        // console.log(req);
+        console.log(req);
         console.log(req.body);
         console.log("トークン:" + token);
         console.log("メッセージ:" + msg);
