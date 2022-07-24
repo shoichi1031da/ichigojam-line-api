@@ -11,15 +11,15 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
    app.use(bodyParser.json()); 
-   //let jsonParser = bodyParser.json();
+   let jsonParser = bodyParser.json();
 
-    // app.use(bodyParser.urlencoded({
-    //     extended: false
-    // }));
-    let urlencodedParserFalse = bodyParser.urlencoded({extended: false});
-    let urlencodedParserTrue = bodyParser.urlencoded({extended: true});
+    app.use(bodyParser.urlencoded({
+        extended: true
+    }));
+    // let urlencodedParserFalse = bodyParser.urlencoded({extended: false});
+    // let urlencodedParserTrue = bodyParser.urlencoded({extended: true});
 
-app.post("/",urlencodedParserFalse,(req,res) => {
+app.post("/",(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
         console.log(req);
@@ -31,17 +31,17 @@ app.post("/",urlencodedParserFalse,(req,res) => {
     res.send("");
 });
 
-app.post("/test",urlencodedParserTrue,(req,res) => {
-    const token = req.body.token;
-    const msg = req.body.msg;
-        console.log(req);
-        console.log(req.body);
-        console.log("トークン:" + token);
-        console.log("メッセージ:" + msg);
-    sendLine(token,msg);
-    console.log("送信完了");
-    res.send("");
-});
+// app.post("/test",urlencodedParserTrue,(req,res) => {
+//     const token = req.body.token;
+//     const msg = req.body.msg;
+//         console.log(req);
+//         console.log(req.body);
+//         console.log("トークン:" + token);
+//         console.log("メッセージ:" + msg);
+//     sendLine(token,msg);
+//     console.log("送信完了");
+//     res.send("");
+// });
 
 const sendLine = (token,msg) => {
     const BASE_URL = 'https://notify-api.line.me';
