@@ -2,6 +2,9 @@
   "name": "line",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "18.6.0"
+  },
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
