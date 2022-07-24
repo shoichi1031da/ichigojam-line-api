@@ -5,7 +5,7 @@ const cors = require("cors");
 
     app.use(cors({
         origin: "https://fukuno.jig.jp",
-        method: "POST",
+        methods: "POST",
     }));
 
 const bodyParser = require("body-parser");
