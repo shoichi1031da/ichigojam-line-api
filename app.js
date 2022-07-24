@@ -10,12 +10,12 @@ const cors = require("cors");
 
 const bodyParser = require("body-parser");
 
-   app.use(bodyParser.json()); 
-   let jsonParser = bodyParser.json();
+//    app.use(bodyParser.json()); 
+//    let jsonParser = bodyParser.json();
 
-    app.use(bodyParser.urlencoded({
-        extended: true
-    }));
+//     app.use(bodyParser.urlencoded({
+//         extended: true
+//     }));
     // let urlencodedParserFalse = bodyParser.urlencoded({extended: false});
     // let urlencodedParserTrue = bodyParser.urlencoded({extended: true});
 
