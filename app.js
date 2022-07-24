@@ -10,16 +10,16 @@ const cors = require("cors");
 
 const bodyParser = require("body-parser");
 
-   // app.use(bodyParser.json()); 
-   let jsonParser = bodyParser.json({type: 'application/*+json'});
+   app.use(bodyParser.json()); 
+   //let jsonParser = bodyParser.json();
 
     // app.use(bodyParser.urlencoded({
     //     extended: false
     // }));
-    let urlencodedParser = bodyParser.urlencoded({extended: false});
+    let urlencodedParserFalse = bodyParser.urlencoded({extended: false});
+    let urlencodedParserTrue = bodyParser.urlencoded({extended: true});
 
-
-app.post("/",urlencodedParser,(req,res) => {
+app.post("/",urlencodedParserFalse,(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
         console.log(req);
@@ -31,7 +31,7 @@ app.post("/",urlencodedParser,(req,res) => {
     res.send("");
 });
 
-app.post("/test",jsonParser,(req,res) => {
+app.post("/test",urlencodedParserTrue,(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
         console.log(req);
