@@ -19,8 +19,8 @@ const bodyParser = require("body-parser");
 app.post("/",(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
-        console.log("req:  " + req);
-        console.log("ボディ: " + req.body);
+        console.log(req);
+        console.log(req.body);
         console.log("トークン:" + token);
         console.log("メッセージ:" + msg);
     sendLine(token,msg);
