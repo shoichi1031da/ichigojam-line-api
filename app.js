@@ -14,11 +14,12 @@ const bodyParser = require("body-parser");
         extended: true
     }));
 
-    // app.use(bodyParser.json()); 
+    app.use(bodyParser.json()); 
 
 app.post("/",(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
+        console.log(req.body);
         console.log("トークン:" + token);
         console.log("メッセージ:" + msg);
     sendLine(token,msg);
