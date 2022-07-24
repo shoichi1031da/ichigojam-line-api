@@ -10,13 +10,28 @@ const cors = require("cors");
 
 const bodyParser = require("body-parser");
 
-    app.use(bodyParser.urlencoded({
-        extended: true
-    }));
+   // app.use(bodyParser.json()); 
+   let jsonParser = bodyParser.json();
 
-    app.use(bodyParser.json()); 
+    // app.use(bodyParser.urlencoded({
+    //     extended: false
+    // }));
+    let urlencodedParser = bodyParser.urlencoded({extended: false});
 
-app.post("/test",(req,res) => {
+
+app.post("/",urlencodedParser,(req,res) => {
+    const token = req.body.token;
+    const msg = req.body.msg;
+        console.log(req);
+        console.log(req.body);
+        console.log("トークン:" + token);
+        console.log("メッセージ:" + msg);
+    sendLine(token,msg);
+    console.log("送信完了");
+    res.send("");
+});
+
+app.post("/test",jsonParser,(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
         console.log(req);
