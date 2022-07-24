@@ -19,7 +19,7 @@ const bodyParser = require("body-parser");
     // let urlencodedParserFalse = bodyParser.urlencoded({extended: false});
     // let urlencodedParserTrue = bodyParser.urlencoded({extended: true});
 
-app.post("/",(req,res) => {
+app.get("/",(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
         console.log(req);
