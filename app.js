@@ -14,7 +14,7 @@ const bodyParser = require("body-parser");
         extended: true
     }));
 
-    app.use(bodyParser.json()); 
+    // app.use(bodyParser.json()); 
 
 app.post("/",(req,res) => {
     const token = req.body.token;
