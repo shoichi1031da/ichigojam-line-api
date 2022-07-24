@@ -22,6 +22,8 @@ app.post("/",(req,res) => {
         console.log("トークン:" + token);
         console.log("メッセージ:" + msg);
     sendLine(token,msg);
+    console.log("送信完了");
+    res.send("");
 });
 
 const sendLine = (token,msg) => {

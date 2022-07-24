@@ -1,8 +1,9 @@
 10 CLS:P=#C00
 20 ?"MJ PCT application/json"
-30 ?"MJ POST START mixjuice-line.herokuapp.com/"
+30 ?"MJ POSTS START mixjuice-line.herokuapp.com/"
 40 GSB@TX
 50 '{"token":"VwDGbZhLXRsbQh32YheeO3kaoWOrC9lzZ6VBlsxvis2","msg":"IchigoJamweb"}
+60 ?"MJ POSTS END"
 100 END
 500 @TX
 510 IF PEEK(P)!=ASC("'") P=P+1:CONT
