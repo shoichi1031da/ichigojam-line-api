@@ -16,7 +16,7 @@ const bodyParser = require("body-parser");
 
     app.use(bodyParser.json()); 
 
-app.post("/",(req,res) => {
+app.post("/test",(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
         console.log(req);
