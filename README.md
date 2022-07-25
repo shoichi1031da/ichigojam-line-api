@@ -53,3 +53,7 @@ IchigoJamのカタカナはFile1番でエンコードしているため使えま
 
 IchigoJam側でエンコードする必要があるため、絵文字を実装するにはIchigoJamのプログラムがもう1ファイル必要です。時間があったら作ります。（プルリク歓迎！）
 
+その他質問などはTwitterからお願いします。
+
+https://twitter.com/shoichi1031da
+
