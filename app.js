@@ -21,18 +21,18 @@ const bodyParser = require("body-parser");
 app.post("/",(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
-    let encodedMsg = "";
-    console.log("msgURI：" + encodeURI(msg));
-    if(encodeURI(msg).substring(0,1) == "%" ){
-        encodedMsg = IchigoJamEncoder(msg);
-        console.log("エンコード：" + encodedMsg);
+    let sendMsg = "";
+    console.log("msg：" + msg);
+    if(msg.substring(0,2) == "%E" ){
+        sendMsg = decodeURI(msg);
+        console.log("デコード：" + sendMsg);
     }
-    else encodedMsg = msg;
+    else sendMsg = msg;
     
     
         console.log("トークン:" + token);
-        console.log("メッセージ:" + encodedMsg);
-    sendLine(token,encodedMsg);
+        console.log("メッセージ:" + sendMsg);
+    sendLine(token,sendMsg);
     console.log("送信完了");
     res.send("'sended LINE message\n");
 });
