@@ -9,6 +9,7 @@ https://ichigojam-line.herokuapp.com/
 LINEアカウントを持っていれば無料で使えるLINE Notifyの機能で、スマホを持っていなくてもLINEが送れますね。
 
 ## ■デモ動画
+https://twitter.com/shoichi1031da/status/1551673648855109633
 
 ## ■必要なもの
 
