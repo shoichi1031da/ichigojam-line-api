@@ -22,7 +22,11 @@ app.post("/",(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
     let encodedMsg = "";
-    if(encodeURI(msg).substring(0,1) == "%" )encodedMsg = IchigoJamEncoder(msg);
+    console.log("msgURI：" + encodeURI(msg));
+    if(encodeURI(msg).substring(0,1) == "%" ){
+        encodedMsg = IchigoJamEncoder(msg);
+        console.log("エンコード：" + encodedMsg);
+    }
     else encodedMsg = msg;
     
     
