@@ -3,9 +3,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require("cors");
 
-//後日IchigoJam絵文字に対応予定
-    // const IchigoJamEncoder = require("./IchigoJamEncoder");
-
 //IchigoJamWebはPOSTに非対応
     // app.use(cors({
     //     origin: "https://fukuno.jig.jp",
