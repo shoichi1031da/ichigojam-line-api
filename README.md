@@ -1,4 +1,4 @@
-# ichigojam-line-api
+# IchigoJam-LINE-api
 
 https://ichigojam-line.herokuapp.com/
 
@@ -8,9 +8,9 @@ https://ichigojam-line.herokuapp.com/
 
 LINEアカウントを持っていれば無料で使えるLINE Notifyの機能で、スマホを持っていなくてもLINEが送れますね。
 
-## デモ動画
+## ■デモ動画
 
-## 必要なもの
+## ■必要なもの
 
 <ul>
 <li>IchigoJam実機</li>
@@ -18,7 +18,7 @@ LINEアカウントを持っていれば無料で使えるLINE Notifyの機能�
 <li>LINE Notifyのアクセストークン</li>
 </ul>
 
-## 使い方手順
+## ■使い方手順
 
 ### 1. 2つのサンプルコード（File0とFile1）をIchigoJamに保存する
 
@@ -45,7 +45,7 @@ https://qiita.com/chivi_dump/items/a62a7b8c32e6ea894a09
 
 ### 4. File0番のプログラムを実行し、メッセージを打ち込んでエンターを押すとLINEに送信されます。
 
-## 注意
+## ■注意
 IchigoJamのカタカナはFile1番でエンコードしているため使えますが、IchigoJamの絵文字は未対応です。送っても文字化けします。
 
 参考：https://hanadojo-sihan.hatenablog.com/entry/2020/10/13/091449
