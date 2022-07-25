@@ -23,18 +23,15 @@ app.post("/",(req,res) => {
     const msg = req.body.msg;
     let sendMsg = "";
     console.log("msg：" + msg);
-    if(msg.substring(0,2) == "%E" ){
+    if(msg.substring(0,1) == "%" ){
         sendMsg = decodeURI(msg);
         console.log("デコード：" + sendMsg);
-    }
-    else sendMsg = msg;
-    
-    
+    }else sendMsg = msg;
         console.log("トークン:" + token);
         console.log("メッセージ:" + sendMsg);
     sendLine(token,sendMsg);
     console.log("送信完了");
-    res.send("'sended LINE message\n");
+    res.send("sended LINE message\n");
 });
 
 const sendLine = (token,msg) => {
