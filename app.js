@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require("cors");
 
-const IchigoJamEncoder = reqire("IchigoJamEncoder");
+const IchigoJamEncoder = require("./IchigoJamEncoder");
 
 //IchigoJamWebはPOSTに非対応
     // app.use(cors({
@@ -21,7 +21,10 @@ const bodyParser = require("body-parser");
 app.post("/",(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
-    const encodedMsg = IchigoJamEncoder(msg);
+    let encodedMsg = "";
+    if(encodeURI(msg).substring(0,1) == "%" )encodedMsg = IchigoJamEncoder(msg);
+    else encodedMsg = msg;
+    
     
         console.log("トークン:" + token);
         console.log("メッセージ:" + encodedMsg);
