@@ -3,32 +3,31 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require("cors");
 
-    app.use(cors({
-        origin: "https://fukuno.jig.jp",
-        methods: "POST",
-    }));
+const IchigoJamEncoder = reqire("IchigoJamEncoder");
+
+//IchigoJamWebはPOSTに非対応
+    // app.use(cors({
+    //     origin: "https://fukuno.jig.jp",
+    //     methods: "POST",
+    // }));
 
 const bodyParser = require("body-parser");
 
-   app.use(bodyParser.json()); 
-   let jsonParser = bodyParser.json();
-
+    app.use(bodyParser.json()); 
     app.use(bodyParser.urlencoded({
         extended: true
     }));
-    // let urlencodedParserFalse = bodyParser.urlencoded({extended: false});
-    // let urlencodedParserTrue = bodyParser.urlencoded({extended: true});
-
+ 
 app.post("/",(req,res) => {
     const token = req.body.token;
     const msg = req.body.msg;
-        console.log(req);
-        console.log(req.body);
+    const encodedMsg = IchigoJamEncoder(msg);
+    
         console.log("トークン:" + token);
-        console.log("メッセージ:" + msg);
-    sendLine(token,msg);
+        console.log("メッセージ:" + encodedMsg);
+    sendLine(token,encodedMsg);
     console.log("送信完了");
-    res.send("");
+    res.send("'sended LINE message\n");
 });
 
 const sendLine = (token,msg) => {
