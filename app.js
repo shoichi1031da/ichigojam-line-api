@@ -25,16 +25,17 @@ const decodeMsg = (msg) => {
     let decodedMsg = "";
     for(let i = 0; i < msg.length; i++){
         if(msg.substr(i,1) == "%"){
-            divideMsg[decodeLength] = msg.substr(i,6);
-            i += 6;
+            divideMsg[decodeLength] = msg.substr(i,9);
+            i += 8;
         } else {
             divideMsg[decodeLength] = msg.substr(i,1);
         }
         decodeLength ++;
     }
     console.log("文字数：" + decodeLength);
+    console.log("divideMsg:" + divideMsg);
 
-    for(const i in divideMsg){
+    for(let i in divideMsg){
         decodedMsg += decodeURI(divideMsg[i]);
     }
 
