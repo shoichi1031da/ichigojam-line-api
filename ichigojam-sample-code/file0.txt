@@ -3,7 +3,7 @@
 20 POKE #1003,1,34:INPUT "LINE",M
 30 IF LEN(M)<101 FOR I=0 TO LEN(M):[I]=ASC(M+I):NEXT ELSE GOTO10 
 40 ?"MJ PCT application/json"
-50 ?"MJ POSTS START mixjuice-line.herokuapp.com/"
+50 ?"MJ POSTS START ichigojam-line.herokuapp.com/"
 60 UART1,0:GOTO@TX
 70 '{"token":"LINE Notifyのアクセストークン","msg":"#"}
 80 ?"MJ POSTS END"
