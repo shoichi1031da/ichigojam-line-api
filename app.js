@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
-const cors = require("cors");
 
 //IchigoJamWebはPOSTに非対応
+    //const cors = require("cors");
     // app.use(cors({
     //     origin: "https://fukuno.jig.jp",
     //     methods: "POST",
@@ -24,13 +24,16 @@ const decodeMsg = (msg) => {
         let d0 = msg.substr(i+0,1);
         let d10 = msg.substr(i+10,1);
         let d13 = msg.substr(i+13,1);
-        if((d0 == "#" && d10 == "#") || d0 == "%"){
-            divideMsg[decodeLength] = msg.substr(i,9);
-            i += 8;
+        if((d0 == "#" && d10 == "#")){
+            divideMsg[decodeLength] = msg.substr(i,11);
+            i += 10;
         } else if(d0 == "#" && d13 == "#"){
             divideMsg[decodeLength] = msg.substr(i,12);
             i += 11;
-        }else {
+        }else if(d0 == "%"){
+            divideMsg[decodeLength] = msg.substr(i,9);
+            i += 8;
+        }else{
             divideMsg[decodeLength] = msg.substr(i,1);
         }
         decodeLength ++;
