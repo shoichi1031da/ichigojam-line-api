@@ -8,6 +8,8 @@ https://ichigojam-line.herokuapp.com/
 
 LINEアカウントを持っていれば無料で使えるLINE Notifyの機能で、スマホを持っていなくてもLINEが送れますね。
 
+追記）IchigoJamのカタカナに加えて、絵文字（文字コード224〜255）にも対応しました！（ver2.0）
+
 ## ■デモ動画
 https://twitter.com/shoichi1031da/status/1551673648855109633
 
@@ -21,16 +23,23 @@ https://twitter.com/shoichi1031da/status/1551673648855109633
 
 ## ■使い方手順
 
-### 1. 2つのサンプルコード（File0とFile1）をIchigoJamに保存する
+### 1. 3つのサンプルコード（File0とFile1）をIchigoJamに保存する
 
 ＜サンプルコード＞
 
 https://github.com/shoichi1031da/ichigojam-line-api/tree/main/ichigojam-sample-code
 
-2ファイルとも長いプログラムなので、簡単にIchigoJamに読み込むには「いちごどろっぷ」をご利用ください。
+3ファイルとも長いプログラムなので、簡単にIchigoJamに読み込むには「いちごどろっぷ」をご利用ください。
 
 https://github.com/shoichi1031da/mixjuice-share-code-app/blob/main/README.md
 
+<ul>
+<li>file0：LINE送信</li>
+<li>file1：IchigoJamのカタカナエンコード</li>
+<li>file2：IchigoJamの絵文字（224〜255）エンコード</li>
+</ul>
+
+※IchigoJamの絵文字が不要な方は、file2のコードとfile1の行番号40のプログラムが不要です。
 
 ### 2. LINE Norifyでアクセストークンを発行する
 
@@ -47,11 +56,9 @@ https://qiita.com/chivi_dump/items/a62a7b8c32e6ea894a09
 ### 4. File0番のプログラムを実行し、メッセージを打ち込んでエンターを押すとLINEに送信されます。
 
 ## ■注意
-IchigoJamのカタカナはFile1番でエンコードしているため使えますが、IchigoJamの絵文字は未対応です。送っても文字化けします。
+IchigoJamのカタカナ、絵文字（文字コード224〜255）にも対応しました！（ver2.0）
 
-参考：https://hanadojo-sihan.hatenablog.com/entry/2020/10/13/091449
-
-IchigoJam側でエンコードする必要があるため、絵文字を実装するにはIchigoJamのプログラムがもう1ファイル必要です。時間があったら作ります。（プルリク歓迎！）
+エンコードの参考：https://hanadojo-sihan.hatenablog.com/entry/2020/10/13/091449
 
 その他質問などはTwitterからお願いします。
 
