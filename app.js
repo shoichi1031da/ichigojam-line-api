@@ -26,10 +26,10 @@ const decodeMsg = (msg) => {
         let d13 = msg.substr(i+13,1);
         if((d0 == "#" && d10 == "#")){
             divideMsg[decodeLength] = msg.substr(i+1,9);
-            i += 11;
+            i += 10;
         } else if(d0 == "#" && d13 == "#"){
             divideMsg[decodeLength] = msg.substr(i+1,12);
-            i += 14;
+            i += 13;
         }else if(d0 == "%"){
             divideMsg[decodeLength] = msg.substr(i,9);
             i += 8;
