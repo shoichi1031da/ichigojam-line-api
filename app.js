@@ -21,16 +21,22 @@ const decodeMsg = (msg) => {
     let divideMsg = [];
     let decodedMsg = "";
     for(let i = 0; i < msg.length; i++){
-        if(msg.substr(i,1) == "%"){
+        let d0 = msg.substr(i+0,1);
+        let d10 = msg.substr(i+10,1);
+        let d13 = msg.substr(i+13,1);
+        if((d0 == "#" && d10 == "#") || d0 == "%"){
             divideMsg[decodeLength] = msg.substr(i,9);
             i += 8;
-        } else {
+        } else if(d0 == "#" && d13 == "#"){
+            divideMsg[decodeLength] = msg.substr(i,12);
+            i += 11;
+        }else {
             divideMsg[decodeLength] = msg.substr(i,1);
         }
         decodeLength ++;
     }
     console.log("文字数：" + decodeLength);
-    console.log("divideMsg:" + divideMsg);
+    console.log("文字分割:" + divideMsg);
 
     for(let i in divideMsg){
         decodedMsg += decodeURI(divideMsg[i]);
