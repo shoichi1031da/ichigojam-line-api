@@ -21,7 +21,7 @@ const decodeMsg = (msg) => {
 
     for(let i in MSG){
 
-        decodeedMsg += decodeURI(MSG[i]);
+        decodedMsg += decodeURI(MSG[i]);
     }
 
         // let d0 = msg.substr(i+0,1); //デコード前のURIの先頭文字列
