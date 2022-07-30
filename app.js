@@ -2,19 +2,14 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//IchigoJamWebはPOSTに非対応
-    //const cors = require("cors");
-    // app.use(cors({
-    //     origin: "https://fukuno.jig.jp",
-    //     methods: "POST",
-    // }));
+// const bodyParser = require("body-parser");
 
-const bodyParser = require("body-parser");
+//     app.use(bodyParser.json()); 
+//     app.use(bodyParser.urlencoded({
+//         extended: true
+//     }));
 
-    app.use(bodyParser.json()); 
-    app.use(bodyParser.urlencoded({
-        extended: true
-    }));
+app.use(express.json());
 
 //IchigoJamから送られてきたエンコードされた文字列をデコードする
 const decodeMsg = (msg) => {
@@ -22,33 +17,39 @@ const decodeMsg = (msg) => {
     let divideMsg = []; //デコード前のURIを1文字あたりに分割して格納
     let decodedMsg = ""; //返り値
 
-    for(let i = 0; i < msg.length; i++){
-        let d0 = msg.substr(i+0,1); //デコード前のURIの先頭文字列
-        let d10 = msg.substr(i+10,1); //最終文字列1
-        let d13 = msg.substr(i+13,1); //最終文字列2
+    let MSG = msg.split("#");
+
+    for(let i in MSG){
+
+        decodeMsg += decodeURI(MSG[i]);
+    }
+
+        // let d0 = msg.substr(i+0,1); //デコード前のURIの先頭文字列
+        // let d10 = msg.substr(i+10,1); //最終文字列1
+        // let d13 = msg.substr(i+13,1); //最終文字列2
 
         //絵文字によってURIの桁数が違うため#を区切り文字列として使用
-        if((d0 == "#" && d10 == "#")){
-            divideMsg[decodeLength] = msg.substr(i+1,9);
-            i += 10;
-        } else if(d0 == "#" && d13 == "#"){
-            divideMsg[decodeLength] = msg.substr(i+1,12);
-            i += 13;
-        //カタカナの時
-        }else if(d0 == "%"){
-            divideMsg[decodeLength] = msg.substr(i,9);
-            i += 8;
-        }else{
-            divideMsg[decodeLength] = msg.substr(i,1);
-        }
-        decodeLength ++;
-    }
-    console.log("文字数：" + decodeLength);
-    console.log("文字分割:" + divideMsg);
+    //     if((d0 == "#" && d10 == "#")){
+    //         divideMsg[decodeLength] = msg.substr(i+1,9);
+    //         i += 10;
+    //     } else if(d0 == "#" && d13 == "#"){
+    //         divideMsg[decodeLength] = msg.substr(i+1,12);
+    //         i += 13;
+    //     //カタカナの時
+    //     }else if(d0 == "%"){
+    //         divideMsg[decodeLength] = msg.substr(i,9);
+    //         i += 8;
+    //     }else{
+    //         divideMsg[decodeLength] = msg.substr(i,1);
+    //     }
+    //     decodeLength ++;
+    // }
+    // console.log("文字数：" + decodeLength);
+    // console.log("文字分割:" + divideMsg);
 
-    for(let i in divideMsg){
-        decodedMsg += decodeURI(divideMsg[i]);
-    }
+    // for(let i in divideMsg){
+    //     decodedMsg += decodeURI(divideMsg[i]);
+    // }
 
     return decodedMsg;
 }
