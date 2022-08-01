@@ -2,6 +2,8 @@
 
 https://ichigojam-line.herokuapp.com/
 
+<img src="https://github.com/shoichi1031da/mixjuice-chat-app/blob/main/document/add_ichigojam-chara.jpg" alt="メイン" title="main"> 
+
 誰でも簡単にIchigoJam（+ MixJuice）からLINEを送れるapiを作成しました！
 
 ※POSTメソッドを使うため、IchigoJamWebは使えません。IchigoJam実機のみです。
