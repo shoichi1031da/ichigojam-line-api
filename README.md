@@ -12,8 +12,11 @@ LINEアカウントを持っていれば無料で使えるLINE Notifyの機能�
 
 追記）IchigoJamのカタカナに加えて、絵文字（文字コード224〜255）にも対応しました！（ver2.0）
 
-## ■デモ動画
+## ■デモ動画 1.INPUTコマンドによるメッセージ送信
 https://twitter.com/shoichi1031da/status/1551673648855109633
+
+## ■デモ動画 2.センサーを組み合わせたIoT制作
+https://twitter.com/shoichi1031da/status/1554093631853989888
 
 ## ■必要なもの
 
@@ -57,10 +60,18 @@ https://qiita.com/chivi_dump/items/a62a7b8c32e6ea894a09
 
 ### 4. File0番のプログラムを実行し、メッセージを打ち込んでエンターを押すとLINEに送信されます。
 
-## ■注意
-IchigoJamのカタカナ、絵文字（文字コード224〜255）にも対応しました！（ver2.0）
+## ■メッセージのエンコード、デコード方法について
+IchigoJam側のプログラム（File1でカタカナ、File2で絵文字）をエンコードしています。
 
-エンコードの参考：https://hanadojo-sihan.hatenablog.com/entry/2020/10/13/091449
+その際に文字列の区切り文字として#を使用しています。
+
+（例：「あ」をメッセージとして送りたい場合、「#%E3%81%82」とIchigoJam側でエンコードしてPOST送信します。）
+
+・IchigoJam側のエンコードの参考：https://hanadojo-sihan.hatenablog.com/entry/2020/10/13/091449
+
+・変換サイト参考：https://tech-unlimited.com/urlencode.html
+
+エンコードされた文字列をサーバー側（app.js）でデコードし、LINEnotifyのapiに渡しています。
 
 その他質問などはTwitterからお願いします。
 
